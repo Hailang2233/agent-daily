@@ -357,8 +357,8 @@ dialog.dlg::backdrop { background: rgba(0, 0, 0, .45); }
 .hot-main { display: block; min-width: 0; }
 .hot-title { font-size: 13.5px; font-weight: 600; margin: 0 0 6px; display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; }
 .hot-title .cat { font-size: 10.5px; color: var(--muted); font-weight: 400; }
-.hot-bar { height: 6px; border-radius: 3px; background: var(--line); overflow: hidden; }
-.hot-fill { height: 100%; border-radius: 3px; background: var(--accent); }
+.hot-bar { display: block; height: 6px; border-radius: 3px; background: var(--line); overflow: hidden; }
+.hot-fill { display: block; height: 100%; border-radius: 3px; background: var(--accent); }
 .hot-count { font-size: 12.5px; color: var(--ink-2); font-variant-numeric: tabular-nums; white-space: nowrap; }
 .hot-empty { padding: 22px 2px; color: var(--muted); font-size: 13px; }
 
@@ -366,7 +366,7 @@ dialog.dlg::backdrop { background: rgba(0, 0, 0, .45); }
 .chat { padding: 22px 24px; margin-top: 14px; }
 .chat-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; margin-bottom: 14px; }
 .chat-hint { margin: 0; font-size: 12px; color: var(--muted); }
-.chat-log { max-height: 460px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; padding: 4px 2px 10px; }
+.chat-log { max-height: 600px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; padding: 4px 2px 10px; }
 .msg { max-width: 92%; padding: 10px 14px; border-radius: 14px; font-size: 13.5px; line-height: 1.65; }
 .msg.user { align-self: flex-end; background: var(--accent); color: var(--accent-ink); border-bottom-right-radius: 4px; }
 .msg.assistant { align-self: flex-start; background: var(--page); border: 1px solid var(--border); border-bottom-left-radius: 4px; width: 100%; max-width: 100%; }
@@ -1356,10 +1356,15 @@ function searchMethods(q, n) {
     .slice(0, n);
 
   return scored.map(x => {
-    /* 推荐理由只展示中文词，避免出现 "ag" "ge" 这种英文碎片 */
-    const terms = x.hits
+    /* 推荐理由只展示较长的完整中文词，避免 "ag" "ge" 或 "上下/下文" 这类碎片 */
+    const chineseHits = x.hits
       .filter(t => t.length >= 2 && /[一-龥]/.test(t))
-      .slice(0, 2);
+      .sort((a, b) => b.length - a.length);
+    const terms = [];
+    for (const t of chineseHits) {
+      if (terms.length >= 2) break;
+      if (!terms.some(s => s.includes(t))) terms.push(t);
+    }
     let reason;
     if (queryLower.length >= 2 && x.m.title.toLowerCase().includes(queryLower)) {
       reason = "标题直接命中";
