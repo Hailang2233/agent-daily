@@ -526,5 +526,581 @@
       "name": "12-Factor Agents",
       "url": "https://github.com/humanlayer/12-factor-agents"
     }
+  },
+  {
+    "id": "m85",
+    "cat": "心法",
+    "level": 3,
+    "title": "先定义失败模式",
+    "one": "动手前写出「这个 agent 可能怎么坏」，再设计防护。",
+    "why": "只想着成功路径，失败会在真实使用里以更贵的方式出现。",
+    "steps": [
+      "列出 5 种失败",
+      "标出最严重的一种",
+      "设计检测方式",
+      "设计兜底动作"
+    ],
+    "try": "给当前 agent 列 5 个失败模式。",
+    "tags": [
+      "失败",
+      "风险",
+      "防护"
+    ],
+    "source": {
+      "name": "12-Factor Agents",
+      "url": "https://github.com/humanlayer/12-factor-agents"
+    }
+  },
+  {
+    "id": "m86",
+    "cat": "心法",
+    "level": 3,
+    "title": "给方案设成本预算",
+    "one": "先定 token、延迟、调用次数的上限，再选方案。",
+    "why": "没有预算，方案会越做越重，最后没法上线。",
+    "steps": [
+      "定上限",
+      "估算单次成本",
+      "选最简方案",
+      "超预算就砍功能"
+    ],
+    "try": "给今天的方案写一个成本上限。",
+    "tags": [
+      "成本",
+      "预算",
+      "延迟"
+    ],
+    "source": {
+      "name": "12-Factor Agents",
+      "url": "https://github.com/humanlayer/12-factor-agents"
+    }
+  },
+  {
+    "id": "m87",
+    "cat": "心法",
+    "level": 3,
+    "title": "单 agent 还是多 agent",
+    "one": "默认单 agent，只有职责确实冲突时才拆多 agent。",
+    "why": "多 agent 带来协调成本和不可预测性，多数任务不需要。",
+    "steps": [
+      "先试单 agent",
+      "列出无法兼顾的职责",
+      "再决定是否拆",
+      "定义通信协议"
+    ],
+    "try": "把准备拆多 agent 的任务先用单 agent 试一次。",
+    "tags": [
+      "多 agent",
+      "拆分",
+      "复杂度"
+    ],
+    "source": {
+      "name": "12-Factor Agents",
+      "url": "https://github.com/humanlayer/12-factor-agents"
+    }
+  },
+  {
+    "id": "m88",
+    "cat": "心法",
+    "level": 2,
+    "title": "把 agent 当新同事 onboarding",
+    "one": "像带新人一样给它入职文档、权限和第一周任务。",
+    "why": "新人上手靠上下文和边界，agent 也一样。",
+    "steps": [
+      "写项目背景",
+      "给最小权限",
+      "安排小任务",
+      "逐步放权"
+    ],
+    "try": "给 agent 写一份一页的入职文档。",
+    "tags": [
+      "入职",
+      "上下文",
+      "权限"
+    ],
+    "source": {
+      "name": "Claude Code Best Practice",
+      "url": "https://github.com/shanraisshan/claude-code-best-practice"
+    }
+  },
+  {
+    "id": "m89",
+    "cat": "上下文",
+    "level": 3,
+    "title": "稳定前缀 + 缓存",
+    "one": "把不变的内容放前面，变化的内容放后面，方便复用缓存。",
+    "why": "稳定前缀能命中缓存，省钱省延迟，也减少上下文抖动。",
+    "steps": [
+      "固定系统提示",
+      "固定工具说明",
+      "变量放尾部",
+      "观测缓存命中"
+    ],
+    "try": "把提示拆成「固定前缀 + 变量尾部」。",
+    "tags": [
+      "缓存",
+      "前缀",
+      "成本"
+    ],
+    "source": {
+      "name": "Awesome Context Engineering",
+      "url": "https://github.com/Meirtz/Awesome-Context-Engineering"
+    }
+  },
+  {
+    "id": "m90",
+    "cat": "上下文",
+    "level": 2,
+    "title": "只保留可执行信息",
+    "one": "上下文里每条信息都要能改变下一步动作，否则删掉。",
+    "why": "背景故事再详细，不改变行动就是噪音。",
+    "steps": [
+      "逐条问「会影响下一步吗」",
+      "不会就删",
+      "保留决策依据",
+      "记录来源"
+    ],
+    "try": "把当前上下文删到只剩可执行信息。",
+    "tags": [
+      "精简",
+      "相关性",
+      "上下文"
+    ],
+    "source": {
+      "name": "Awesome Context Engineering",
+      "url": "https://github.com/Meirtz/Awesome-Context-Engineering"
+    }
+  },
+  {
+    "id": "m91",
+    "cat": "上下文",
+    "level": 3,
+    "title": "用检索代替记忆",
+    "one": "需要事实时去查，不要指望模型记住。",
+    "why": "记忆会过期、会混淆；检索结果可追溯。",
+    "steps": [
+      "建可检索的资料库",
+      "查完注明来源",
+      "关键事实二次核对",
+      "定期更新"
+    ],
+    "try": "下次问事实类问题，先检索再回答。",
+    "tags": [
+      "检索",
+      "RAG",
+      "事实"
+    ],
+    "source": {
+      "name": "Prompt Engineering Guide",
+      "url": "https://github.com/dair-ai/Prompt-Engineering-Guide"
+    }
+  },
+  {
+    "id": "m92",
+    "cat": "上下文",
+    "level": 3,
+    "title": "上下文快照",
+    "one": "重要任务开始时冻结一份上下文快照，便于复现。",
+    "why": "上下文漂移后，同一个问题会得到不同答案，无法比较。",
+    "steps": [
+      "保存输入",
+      "记录版本",
+      "记录工具结果",
+      "复现时用同一快照"
+    ],
+    "try": "给今天的关键任务存一份上下文快照。",
+    "tags": [
+      "快照",
+      "复现",
+      "上下文"
+    ],
+    "source": {
+      "name": "Awesome Context Engineering",
+      "url": "https://github.com/Meirtz/Awesome-Context-Engineering"
+    }
+  },
+  {
+    "id": "m93",
+    "cat": "提示",
+    "level": 2,
+    "title": "先定评分标准",
+    "one": "用评分表代替「好一点」「专业一点」这类形容词。",
+    "why": "有维度有分档，输出才能被稳定比较和迭代。",
+    "steps": [
+      "定 3–5 个维度",
+      "每维 1–5 分",
+      "写清每档标准",
+      "按表打分"
+    ],
+    "try": "给一个反复调整的输出写一张评分表。",
+    "tags": [
+      "评分",
+      "标准",
+      "迭代"
+    ],
+    "source": {
+      "name": "Claude Code Best Practice",
+      "url": "https://github.com/shanraisshan/claude-code-best-practice"
+    }
+  },
+  {
+    "id": "m94",
+    "cat": "提示",
+    "level": 2,
+    "title": "先定输出 schema",
+    "one": "先写清输出字段和类型，再让它填。",
+    "why": "schema 让结果可解析、可校验，减少格式返工。",
+    "steps": [
+      "定字段",
+      "定类型",
+      "定必填",
+      "让它按 schema 输出"
+    ],
+    "try": "给一个抽取任务先写 JSON schema。",
+    "tags": [
+      "schema",
+      "结构化",
+      "格式"
+    ],
+    "source": {
+      "name": "12-Factor Agents",
+      "url": "https://github.com/humanlayer/12-factor-agents"
+    }
+  },
+  {
+    "id": "m95",
+    "cat": "提示",
+    "level": 2,
+    "title": "先问意图，再问做法",
+    "one": "先让它复述「为什么要做」，再讨论怎么做。",
+    "why": "做法可以有很多种，意图错了全白做。",
+    "steps": [
+      "问目标",
+      "问约束",
+      "问成功标准",
+      "再给做法"
+    ],
+    "try": "下个任务先让 agent 说出你的真实意图。",
+    "tags": [
+      "意图",
+      "目标",
+      "沟通"
+    ],
+    "source": {
+      "name": "Claude Code Best Practice",
+      "url": "https://github.com/shanraisshan/claude-code-best-practice"
+    }
+  },
+  {
+    "id": "m96",
+    "cat": "提示",
+    "level": 3,
+    "title": "给角色划边界",
+    "one": "明确它负责什么、不负责什么、何时转交给人。",
+    "why": "边界不清会导致越权、漏项和互相等待。",
+    "steps": [
+      "列职责",
+      "列非职责",
+      "定转交条件",
+      "写进说明"
+    ],
+    "try": "给当前 agent 写一条「不负责」清单。",
+    "tags": [
+      "边界",
+      "职责",
+      "转交"
+    ],
+    "source": {
+      "name": "12-Factor Agents",
+      "url": "https://github.com/humanlayer/12-factor-agents"
+    }
+  },
+  {
+    "id": "m97",
+    "cat": "工作流",
+    "level": 3,
+    "title": "工具少而清晰",
+    "one": "工具数量少、名字直白、参数简单，比工具多更重要。",
+    "why": "工具越多，选择越难，误用越多。",
+    "steps": [
+      "合并相似工具",
+      "用动词命名",
+      "参数最小化",
+      "写清何时不用"
+    ],
+    "try": "把现有工具合并掉两个。",
+    "tags": [
+      "工具",
+      "命名",
+      "简化"
+    ],
+    "source": {
+      "name": "12-Factor Agents",
+      "url": "https://github.com/humanlayer/12-factor-agents"
+    }
+  },
+  {
+    "id": "m98",
+    "cat": "工作流",
+    "level": 3,
+    "title": "工具失败要可恢复",
+    "one": "工具报错要返回结构化原因和可执行的下一步。",
+    "why": "一句「失败」会让 agent 乱试；结构化错误能指向修复。",
+    "steps": [
+      "定义错误码",
+      "给修复建议",
+      "标出可重试",
+      "记录失败"
+    ],
+    "try": "给一个常用工具加结构化错误。",
+    "tags": [
+      "错误",
+      "重试",
+      "工具"
+    ],
+    "source": {
+      "name": "12-Factor Agents",
+      "url": "https://github.com/humanlayer/12-factor-agents"
+    }
+  },
+  {
+    "id": "m99",
+    "cat": "工作流",
+    "level": 3,
+    "title": "人工确认门",
+    "one": "不可逆或高风险动作前，强制停下来等人确认。",
+    "why": "agent 的速度优势，在错误操作上会变成损失放大器。",
+    "steps": [
+      "列出高风险动作",
+      "加确认",
+      "显示影响范围",
+      "记录确认人"
+    ],
+    "try": "给删除、发布或付款类操作加一道确认。",
+    "tags": [
+      "确认",
+      "风险",
+      "人工"
+    ],
+    "source": {
+      "name": "12-Factor Agents",
+      "url": "https://github.com/humanlayer/12-factor-agents"
+    }
+  },
+  {
+    "id": "m100",
+    "cat": "工作流",
+    "level": 3,
+    "title": "最小权限与沙箱",
+    "one": "只给完成任务必需的权限，能隔离就隔离。",
+    "why": "权限越大，出错时的破坏面越大。",
+    "steps": [
+      "列必需权限",
+      "默认只读",
+      "网络和文件隔离",
+      "定期回收"
+    ],
+    "try": "检查一个 agent 的权限，去掉一项不必要的。",
+    "tags": [
+      "权限",
+      "沙箱",
+      "安全"
+    ],
+    "source": {
+      "name": "12-Factor Agents",
+      "url": "https://github.com/humanlayer/12-factor-agents"
+    }
+  },
+  {
+    "id": "m101",
+    "cat": "工作流",
+    "level": 4,
+    "title": "可观测：日志与追踪",
+    "one": "记录输入、输出、工具调用和耗时，出问题能回放。",
+    "why": "没有追踪，只能靠猜；有追踪才能定位和优化。",
+    "steps": [
+      "记录请求 ID",
+      "记录工具调用",
+      "记录耗时",
+      "脱敏保存"
+    ],
+    "try": "给一个 agent 加一条完整的调用日志。",
+    "tags": [
+      "日志",
+      "追踪",
+      "观测"
+    ],
+    "source": {
+      "name": "Awesome Context Engineering",
+      "url": "https://github.com/Meirtz/Awesome-Context-Engineering"
+    }
+  },
+  {
+    "id": "m102",
+    "cat": "工作流",
+    "level": 3,
+    "title": "回归评测集",
+    "one": "准备一组固定用例，每次改提示或模型都跑一遍。",
+    "why": "没有基线，「感觉变好了」可能只是换了个错法。",
+    "steps": [
+      "选 10–20 个代表用例",
+      "记录期望",
+      "每次改动跑",
+      "对比通过率"
+    ],
+    "try": "给当前 agent 建 10 条回归用例。",
+    "tags": [
+      "评测",
+      "回归",
+      "基线"
+    ],
+    "source": {
+      "name": "Claude Code Best Practice",
+      "url": "https://github.com/shanraisshan/claude-code-best-practice"
+    }
+  },
+  {
+    "id": "m103",
+    "cat": "验证",
+    "level": 3,
+    "title": "离线评测",
+    "one": "上线前先在固定数据集上打分，而不是直接看感觉。",
+    "why": "线上试错成本高，离线评测能提前暴露退化。",
+    "steps": [
+      "定指标",
+      "跑基线",
+      "改一版再跑",
+      "只上线不退化的"
+    ],
+    "try": "给一个改动做一次离线对比。",
+    "tags": [
+      "离线",
+      "评测",
+      "指标"
+    ],
+    "source": {
+      "name": "Awesome Context Engineering",
+      "url": "https://github.com/Meirtz/Awesome-Context-Engineering"
+    }
+  },
+  {
+    "id": "m104",
+    "cat": "验证",
+    "level": 4,
+    "title": "灰度发布",
+    "one": "新版本先给小流量，观察指标再全量。",
+    "why": "一次性全量会把未知问题放大到所有用户。",
+    "steps": [
+      "选小流量",
+      "定观察指标",
+      "设回滚线",
+      "逐步放量"
+    ],
+    "try": "给下次 agent 更新定一个灰度比例。",
+    "tags": [
+      "灰度",
+      "发布",
+      "回滚"
+    ],
+    "source": {
+      "name": "12-Factor Agents",
+      "url": "https://github.com/humanlayer/12-factor-agents"
+    }
+  },
+  {
+    "id": "m105",
+    "cat": "验证",
+    "level": 3,
+    "title": "用户反馈闭环",
+    "one": "把点赞、点踩、报错变成评测样本，而不是看完就算。",
+    "why": "反馈只有进入数据集，才能防止同一个问题再次发生。",
+    "steps": [
+      "收集反馈",
+      "归类原因",
+      "加入评测集",
+      "修复后回归"
+    ],
+    "try": "把最近 3 条负面反馈加入评测集。",
+    "tags": [
+      "反馈",
+      "闭环",
+      "评测"
+    ],
+    "source": {
+      "name": "Awesome Context Engineering",
+      "url": "https://github.com/Meirtz/Awesome-Context-Engineering"
+    }
+  },
+  {
+    "id": "m106",
+    "cat": "验证",
+    "level": 4,
+    "title": "失败样本回放",
+    "one": "保存失败请求的完整输入，修复后原样重跑。",
+    "why": "复现是修复的前提；靠记忆复现通常会漏条件。",
+    "steps": [
+      "保存输入",
+      "保存工具结果",
+      "记录版本",
+      "修复后回放"
+    ],
+    "try": "挑一个失败样本做一次完整回放。",
+    "tags": [
+      "回放",
+      "复现",
+      "失败"
+    ],
+    "source": {
+      "name": "Claude Code Best Practice",
+      "url": "https://github.com/shanraisshan/claude-code-best-practice"
+    }
+  },
+  {
+    "id": "m107",
+    "cat": "成长",
+    "level": 4,
+    "title": "成本与延迟看板",
+    "one": "跟踪 token、调用次数、p95 延迟，按周看趋势。",
+    "why": "成本和延迟是 agent 能不能长期用的硬约束。",
+    "steps": [
+      "记每任务成本",
+      "记 p95",
+      "按周对比",
+      "找最贵环节"
+    ],
+    "try": "给本周的任务记一次成本与延迟。",
+    "tags": [
+      "成本",
+      "延迟",
+      "指标"
+    ],
+    "source": {
+      "name": "12-Factor Agents",
+      "url": "https://github.com/humanlayer/12-factor-agents"
+    }
+  },
+  {
+    "id": "m108",
+    "cat": "成长",
+    "level": 4,
+    "title": "每月淘汰一个方法",
+    "one": "每月删掉一个不再有效或成本过高的方法或工具。",
+    "why": "只加不减，系统会越来越重，真正有用的被淹没。",
+    "steps": [
+      "列当前方法和工具",
+      "看使用率和效果",
+      "删一个",
+      "记录原因"
+    ],
+    "try": "今天删掉一个你不再用的方法或工具。",
+    "tags": [
+      "淘汰",
+      "精简",
+      "维护"
+    ],
+    "source": {
+      "name": "Claude Code Best Practice",
+      "url": "https://github.com/shanraisshan/claude-code-best-practice"
+    }
   }
 ]
