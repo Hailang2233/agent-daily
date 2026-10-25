@@ -30,29 +30,38 @@ const base = String(heat.baseUrl).replace(/\/$/, "");
 const ns = encodeURIComponent(heat.namespace);
 const counts = {};
 let failures = 0;
+const started = Date.now();
+const TIME_BUDGET_MS = 150000; // 最多 2.5 分钟，避免 Action 长时间卡住
 
-for (const item of pool) {
-  const id = item.id;
-  const url = `${base}/get/${ns}/${encodeURIComponent(id)}`;
-  let ok = false;
-  for (let attempt = 0; attempt < 2 && !ok; attempt++) {
-    try {
-      const res = await fetch(url, { headers: { "accept": "application/json" } });
-      if (res.status === 429) {
-        await sleep(5000);
-        continue;
-      }
-      if (!res.ok) throw new Error("HTTP " + res.status);
-      const data = await res.json();
-      const value = Number(data.value);
-      if (Number.isFinite(value) && value > 0) counts[id] = value;
-      ok = true;
-    } catch (e) {
-      if (attempt === 0) await sleep(1500);
-    }
+for (let i = 0; i < pool.length; i++) {
+  if (Date.now() - started > TIME_BUDGET_MS) {
+    console.warn(`达到时间上限，已处理 ${i}/${pool.length} 条，写入部分结果`);
+    break;
   }
-  if (!ok) failures++;
-  await sleep(400); // 控制在 Abacus 的 30 次 / 10 秒限制内
+  const id = pool[i].id;
+  const url = `${base}/get/${ns}/${encodeURIComponent(id)}`;
+  try {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 6000);
+    const res = await fetch(url, {
+      headers: { "accept": "application/json" },
+      signal: ctrl.signal
+    });
+    clearTimeout(timer);
+    if (res.status === 429) {
+      failures++;
+      await sleep(2000);
+      continue;
+    }
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    const data = await res.json();
+    const value = Number(data.value);
+    if (Number.isFinite(value) && value > 0) counts[id] = value;
+  } catch (e) {
+    failures++;
+  }
+  if ((i + 1) % 10 === 0) console.log(`已处理 ${i + 1}/${pool.length}`);
+  await sleep(350); // 控制在 Abacus 的 30 次 / 10 秒限制内
 }
 
 if (failures === pool.length) {
