@@ -5,6 +5,7 @@
 (function (root) {
   var CONFIG = {
     repoUrl: "https://github.com/Hailang2233/agent-daily",
+    siteUrl: "https://hailang2233.github.io/agent-daily/",
     heat: {
       enabled: true,
       baseUrl: "https://abacus.jasoncameron.dev",

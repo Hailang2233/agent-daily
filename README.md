@@ -6,6 +6,7 @@
 - **每天上新 + 每日 3 条**：GitHub Action 每天从 backlog 放出新方法，并生成 `data/daily.js` 自动提交
 - **本地问答**：底部输入你的问题，从方法库里匹配 3 条最相关的（不调用外部 API）
 - **热度榜**：匿名浏览计数（可选），看看大家都在看什么
+- **分享 / 二维码**：本地生成站点二维码，支持复制链接与系统分享
 - **练习闭环**：打卡、连续天数、热力图、掌握标记、LV1–5 能力阶梯、每周复盘
 - **自建方法**：页面表单添加，参与每日轮换
 - **数据本地**：练习记录存 `localStorage`，可导出 / 导入 JSON
@@ -27,6 +28,7 @@ python -m http.server 8080
 index.html              页面（结构 / 样式 / 逻辑）
 icon.svg                图标源文件
 icon-256.png            favicon 与快捷方式图标
+assets/qrcode.js        本地 QR 库（MIT，用于分享二维码）
 data/
   config.js             站点配置（仓库地址、热度开关与命名空间）
   backlog.json          待发布队列（每天自动放出 N 条）
@@ -104,6 +106,7 @@ npm run update
 3. 修改 `data/config.js`：
    ```js
    repoUrl: "https://github.com/<你的用户名>/<仓库名>",
+   siteUrl: "https://<你的域名>/",   // 分享二维码用它，绑定自定义域名后改这里
    heat: { enabled: true, baseUrl: "https://abacus.jasoncameron.dev", namespace: "自己的一串唯一名字" }
    ```
 4. 打开 **Actions → Daily update → Run workflow** 手动跑一次，确认 `data/daily.js` 更新并提交。
@@ -112,6 +115,14 @@ npm run update
 > 如果仓库默认分支不是 `main`，同步修改 `pages.yml` 里的 `branches`。
 >
 > 如果 Daily update 里 `git push` 失败：到 **Settings → Actions → General → Workflow permissions**，选 **Read and write permissions**。
+
+## 自定义域名
+
+1. DNS 加记录：子域用 CNAME 指向 `<用户名>.github.io`；根域用 GitHub 的 A/AAAA 记录。
+2. Cloudflare 上把记录设为 **DNS only（灰云）**，否则证书签发容易失败。
+3. 仓库 **Settings → Pages → Custom domain** 填域名并 Save。
+4. 证书签发后勾选 **Enforce HTTPS**。
+5. 把 `data/config.js` 的 `siteUrl` 改成新域名，分享二维码会跟着变。
 
 ## 方法来源与许可
 

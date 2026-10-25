@@ -14,6 +14,12 @@
 
 > 各来源的许可证以原仓库为准；如果来源更新了许可，请以最新版本为准。
 
+## 第三方库
+
+| 库 | 许可证 | 用途 |
+|----|--------|------|
+| [qrcode-generator](https://github.com/kazuhikoarase/qrcode-generator) | MIT | 在浏览器本地生成分享二维码（`assets/qrcode.js`），不请求外部接口 |
+
 ## 第三方服务
 
 - [Abacus](https://abacus.jasoncameron.dev/) — 匿名单词计数服务，开源。仅发送方法 ID 计数，不发送个人信息；可在 `data/config.js` 关闭。
