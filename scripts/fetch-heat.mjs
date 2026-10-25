@@ -50,7 +50,7 @@ for (let i = 0; i < pool.length; i++) {
     clearTimeout(timer);
     if (res.status === 429) {
       failures++;
-      await sleep(2000);
+      await sleep(3000);
       continue;
     }
     if (!res.ok) throw new Error("HTTP " + res.status);
@@ -61,7 +61,7 @@ for (let i = 0; i < pool.length; i++) {
     failures++;
   }
   if ((i + 1) % 10 === 0) console.log(`已处理 ${i + 1}/${pool.length}`);
-  await sleep(350); // 控制在 Abacus 的 30 次 / 10 秒限制内
+  await sleep(600); // 控制在 Abacus 的 30 次 / 10 秒限制内，留出余量
 }
 
 if (failures === pool.length) {
