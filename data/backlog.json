@@ -1,0 +1,530 @@
+[
+  {
+    "id": "m63",
+    "cat": "心法",
+    "level": 3,
+    "title": "先验证最危险的假设",
+    "one": "动手前先找出「如果错了全盘皆输」的那个假设，用最小实验验证。",
+    "why": "大部分返工不是执行慢，而是方向从一开始就错。",
+    "steps": [
+      "列出关键假设",
+      "标出最危险的一个",
+      "设计 10 分钟实验",
+      "结果决定是否继续"
+    ],
+    "try": "今天先花 10 分钟验证一个关键假设。",
+    "tags": [
+      "假设",
+      "验证",
+      "方向"
+    ],
+    "source": {
+      "name": "Claude Code Best Practice",
+      "url": "https://github.com/shanraisshan/claude-code-best-practice"
+    }
+  },
+  {
+    "id": "m64",
+    "cat": "上下文",
+    "level": 3,
+    "title": "渐进披露",
+    "one": "只先加载「名字 + 描述」，需要时再读完整说明。",
+    "why": "一次把所有资料塞进上下文，会挤掉真正相关的内容。",
+    "steps": [
+      "给技能和文档写短描述",
+      "按任务匹配再展开",
+      "只读当前需要的部分",
+      "用完就退出"
+    ],
+    "try": "把一个长文档拆成「摘要 + 分段」，按需读取。",
+    "tags": [
+      "渐进披露",
+      "技能",
+      "上下文"
+    ],
+    "source": {
+      "name": "Agent Skills",
+      "url": "https://github.com/agentskills/agentskills"
+    }
+  },
+  {
+    "id": "m65",
+    "cat": "上下文",
+    "level": 3,
+    "title": "记忆分层",
+    "one": "区分「本次任务的工作记忆」和「长期保留的决定与偏好」。",
+    "why": "把所有聊天记录都当记忆，会越来越重；只留决定才能复用。",
+    "steps": [
+      "工作记忆随任务结束丢弃",
+      "决定和偏好写进文件",
+      "定期清理过期记忆",
+      "新任务只带必要记忆"
+    ],
+    "try": "给当前项目建一份「决定记录」，只写结论不写过程。",
+    "tags": [
+      "记忆",
+      "决定",
+      "上下文"
+    ],
+    "source": {
+      "name": "Awesome Context Engineering",
+      "url": "https://github.com/Meirtz/Awesome-Context-Engineering"
+    }
+  },
+  {
+    "id": "m66",
+    "cat": "上下文",
+    "level": 2,
+    "title": "结构化数据注入",
+    "one": "能给 JSON 或表格就不要给一大段散文。",
+    "why": "结构化输入让字段和边界明确，模型更少猜。",
+    "steps": [
+      "把资料整理成字段",
+      "缺失值显式写 null",
+      "标注类型和单位",
+      "让它按 schema 输出"
+    ],
+    "try": "下次贴数据前先整理成表格或 JSON。",
+    "tags": [
+      "JSON",
+      "表格",
+      "结构化"
+    ],
+    "source": {
+      "name": "Awesome Context Engineering",
+      "url": "https://github.com/Meirtz/Awesome-Context-Engineering"
+    }
+  },
+  {
+    "id": "m67",
+    "cat": "上下文",
+    "level": 3,
+    "title": "让 agent 写工作笔记",
+    "one": "让它把中间发现写成一份工作笔记，后续只读笔记。",
+    "why": "中间过程不用反复回灌，笔记成为可复用的压缩上下文。",
+    "steps": [
+      "每完成一小步写 3 行发现",
+      "记录未决问题",
+      "后续只读笔记",
+      "结束归档"
+    ],
+    "try": "让 agent 为今天的任务写一份工作笔记。",
+    "tags": [
+      "笔记",
+      "压缩",
+      "上下文"
+    ],
+    "source": {
+      "name": "Awesome Context Engineering",
+      "url": "https://github.com/Meirtz/Awesome-Context-Engineering"
+    }
+  },
+  {
+    "id": "m68",
+    "cat": "上下文",
+    "level": 3,
+    "title": "上下文质量检查",
+    "one": "加资料前先问「这条会改变结论吗」，不会就别加。",
+    "why": "上下文不是越多越好，低相关信息会稀释注意力。",
+    "steps": [
+      "逐条问相关性",
+      "删掉重复和过时内容",
+      "只留有决策价值的",
+      "记录删除原因"
+    ],
+    "try": "把当前上下文删掉三分之一再继续。",
+    "tags": [
+      "相关性",
+      "清理",
+      "上下文"
+    ],
+    "source": {
+      "name": "Awesome Context Engineering",
+      "url": "https://github.com/Meirtz/Awesome-Context-Engineering"
+    }
+  },
+  {
+    "id": "m69",
+    "cat": "提示",
+    "level": 2,
+    "title": "先推理再结论",
+    "one": "要求它先写出推理过程，再给结论。",
+    "why": "直接要结论容易得到「看起来合理」的答案；推理能暴露漏洞。",
+    "steps": [
+      "要求列出前提",
+      "写出推理链",
+      "再给结论",
+      "检查前提是否成立"
+    ],
+    "try": "让 agent 对一个判断先写推理再下结论。",
+    "tags": [
+      "推理",
+      "思维链",
+      "结论"
+    ],
+    "source": {
+      "name": "Prompt Engineering Guide",
+      "url": "https://github.com/dair-ai/Prompt-Engineering-Guide"
+    }
+  },
+  {
+    "id": "m70",
+    "cat": "提示",
+    "level": 3,
+    "title": "多次采样取一致",
+    "one": "对关键判断采样多次，看答案是否稳定。",
+    "why": "单次正确可能是运气；多次一致才说明结论稳。",
+    "steps": [
+      "同一问题问 3 次",
+      "比较差异",
+      "不一致就找原因",
+      "只信稳定的部分"
+    ],
+    "try": "把一个重要判断问三遍，比较结果。",
+    "tags": [
+      "采样",
+      "一致性",
+      "可靠性"
+    ],
+    "source": {
+      "name": "Prompt Engineering Guide",
+      "url": "https://github.com/dair-ai/Prompt-Engineering-Guide"
+    }
+  },
+  {
+    "id": "m71",
+    "cat": "提示",
+    "level": 3,
+    "title": "提示链",
+    "one": "把复杂任务拆成串联的小提示，每步验证后再进入下一步。",
+    "why": "一次性长提示难以定位错误；链条让每步可检查。",
+    "steps": [
+      "拆成 3–5 步",
+      "每步定义输入输出",
+      "验证通过再继续",
+      "失败只重跑该步"
+    ],
+    "try": "把一个复杂任务改成三步提示链。",
+    "tags": [
+      "提示链",
+      "拆解",
+      "验证"
+    ],
+    "source": {
+      "name": "Prompt Engineering Guide",
+      "url": "https://github.com/dair-ai/Prompt-Engineering-Guide"
+    }
+  },
+  {
+    "id": "m72",
+    "cat": "提示",
+    "level": 3,
+    "title": "推理-行动循环",
+    "one": "让它按「想一步 → 做一步 → 看结果」循环，而不是一次想完。",
+    "why": "真实任务需要根据工具结果调整，闭环比长计划可靠。",
+    "steps": [
+      "写当前判断",
+      "执行一个动作",
+      "读结果",
+      "更新判断再继续"
+    ],
+    "try": "让 agent 用「想—做—看」循环完成一个小任务。",
+    "tags": [
+      "ReAct",
+      "工具",
+      "循环"
+    ],
+    "source": {
+      "name": "Prompt Engineering Guide",
+      "url": "https://github.com/dair-ai/Prompt-Engineering-Guide"
+    }
+  },
+  {
+    "id": "m73",
+    "cat": "提示",
+    "level": 2,
+    "title": "用代码算，不靠心算",
+    "one": "计算、统计、格式转换交给代码执行。",
+    "why": "模型心算容易错，代码结果可复现、可检查。",
+    "steps": [
+      "让它写脚本",
+      "实际运行",
+      "用输出做结论",
+      "保留脚本"
+    ],
+    "try": "下次遇到计算，要求它写代码并运行。",
+    "tags": [
+      "代码",
+      "计算",
+      "可复现"
+    ],
+    "source": {
+      "name": "Prompt Engineering Guide",
+      "url": "https://github.com/dair-ai/Prompt-Engineering-Guide"
+    }
+  },
+  {
+    "id": "m74",
+    "cat": "工作流",
+    "level": 3,
+    "title": "任务队列",
+    "one": "把待办写成队列文件，agent 每次只取队首任务。",
+    "why": "一次处理一堆任务会互相干扰；队列让状态清楚。",
+    "steps": [
+      "建 todo 文件",
+      "标状态和优先级",
+      "一次只做一项",
+      "完成后更新"
+    ],
+    "try": "给今天的任务建一个队列文件。",
+    "tags": [
+      "队列",
+      "待办",
+      "状态"
+    ],
+    "source": {
+      "name": "12-Factor Agents",
+      "url": "https://github.com/humanlayer/12-factor-agents"
+    }
+  },
+  {
+    "id": "m75",
+    "cat": "工作流",
+    "level": 3,
+    "title": "检查点与恢复",
+    "one": "长任务定期存检查点，失败后从最近检查点恢复。",
+    "why": "从头重跑既慢又可能重复副作用。",
+    "steps": [
+      "定义检查点",
+      "保存状态",
+      "失败后读检查点",
+      "从断点继续"
+    ],
+    "try": "给一个长任务加两个检查点。",
+    "tags": [
+      "检查点",
+      "恢复",
+      "长任务"
+    ],
+    "source": {
+      "name": "12-Factor Agents",
+      "url": "https://github.com/humanlayer/12-factor-agents"
+    }
+  },
+  {
+    "id": "m76",
+    "cat": "工作流",
+    "level": 4,
+    "title": "统一状态",
+    "one": "把「执行到哪」和「业务数据」放在同一份状态里。",
+    "why": "两套状态容易不同步，恢复时对不上。",
+    "steps": [
+      "定义单一状态对象",
+      "执行步骤写同一状态",
+      "恢复只读它",
+      "避免旁路状态"
+    ],
+    "try": "把当前任务的进度和数据合并到一份文件。",
+    "tags": [
+      "状态",
+      "恢复",
+      "一致性"
+    ],
+    "source": {
+      "name": "12-Factor Agents",
+      "url": "https://github.com/humanlayer/12-factor-agents"
+    }
+  },
+  {
+    "id": "m77",
+    "cat": "工作流",
+    "level": 4,
+    "title": "自己掌控控制流",
+    "one": "循环、分支、重试由你显式控制，不要藏进框架黑盒。",
+    "why": "出问题时能定位是哪一步，也方便插入人工确认。",
+    "steps": [
+      "画出控制流",
+      "显式写分支和重试",
+      "记录每次决策",
+      "黑盒只做工具"
+    ],
+    "try": "把一个黑盒流程画成显式步骤图。",
+    "tags": [
+      "控制流",
+      "可观测",
+      "编排"
+    ],
+    "source": {
+      "name": "12-Factor Agents",
+      "url": "https://github.com/humanlayer/12-factor-agents"
+    }
+  },
+  {
+    "id": "m78",
+    "cat": "工作流",
+    "level": 4,
+    "title": "无状态 reducer",
+    "one": "把每次事件映射成新状态，agent 本身不保存隐含状态。",
+    "why": "可重放、可测试、可恢复，调试成本低。",
+    "steps": [
+      "定义事件",
+      "定义状态",
+      "写纯函数处理",
+      "用事件日志重放"
+    ],
+    "try": "用「事件 → 状态」的方式记录一次任务。",
+    "tags": [
+      "事件",
+      "状态",
+      "可重放"
+    ],
+    "source": {
+      "name": "12-Factor Agents",
+      "url": "https://github.com/humanlayer/12-factor-agents"
+    }
+  },
+  {
+    "id": "m79",
+    "cat": "工作流",
+    "level": 3,
+    "title": "多入口触发",
+    "one": "同一个 agent 支持命令行、网页、消息等多个入口。",
+    "why": "用户在哪，入口就在哪；不必为了用 agent 换工具。",
+    "steps": [
+      "抽出核心逻辑",
+      "做薄适配层",
+      "统一输入输出",
+      "各入口共用状态"
+    ],
+    "try": "给一个常用脚本加一个最简单的网页入口。",
+    "tags": [
+      "入口",
+      "集成",
+      "体验"
+    ],
+    "source": {
+      "name": "12-Factor Agents",
+      "url": "https://github.com/humanlayer/12-factor-agents"
+    }
+  },
+  {
+    "id": "m80",
+    "cat": "验证",
+    "level": 3,
+    "title": "用测试锁定行为",
+    "one": "先把关键行为写成测试，再让 agent 改代码。",
+    "why": "测试是「不许变」的契约，能防止改 A 坏 B。",
+    "steps": [
+      "写 3 个关键用例",
+      "先跑通",
+      "再让 agent 修改",
+      "每次改完重跑"
+    ],
+    "try": "给一个易碎功能补 3 个测试。",
+    "tags": [
+      "测试",
+      "契约",
+      "回归"
+    ],
+    "source": {
+      "name": "Claude Code Best Practice",
+      "url": "https://github.com/shanraisshan/claude-code-best-practice"
+    }
+  },
+  {
+    "id": "m81",
+    "cat": "验证",
+    "level": 3,
+    "title": "分层验证",
+    "one": "单元、集成、端到端各验一层，别只跑最外层。",
+    "why": "外层通过不代表内层正确；分层能快速定位问题。",
+    "steps": [
+      "列出三层检查",
+      "每层有明确命令",
+      "失败先修该层",
+      "全绿才交付"
+    ],
+    "try": "给当前任务补一层集成检查。",
+    "tags": [
+      "测试",
+      "分层",
+      "集成"
+    ],
+    "source": {
+      "name": "Claude Code Best Practice",
+      "url": "https://github.com/shanraisshan/claude-code-best-practice"
+    }
+  },
+  {
+    "id": "m82",
+    "cat": "验证",
+    "level": 4,
+    "title": "红队输入",
+    "one": "用恶意或边界输入测试 agent，而不只用正常样例。",
+    "why": "真实世界会遇到 prompt 注入、空值、超长输入。",
+    "steps": [
+      "准备异常样例",
+      "测注入、越权和空值",
+      "记录失败",
+      "加防护"
+    ],
+    "try": "用 3 个异常输入测一次你的 agent。",
+    "tags": [
+      "红队",
+      "注入",
+      "边界"
+    ],
+    "source": {
+      "name": "Prompt Engineering Guide",
+      "url": "https://github.com/dair-ai/Prompt-Engineering-Guide"
+    }
+  },
+  {
+    "id": "m83",
+    "cat": "成长",
+    "level": 3,
+    "title": "文档即产品",
+    "one": "README 写清「是什么、怎么跑、怎么改」，它就是项目的门面。",
+    "why": "开源项目的第一道门槛，是别人能不能在 5 分钟内跑起来。",
+    "steps": [
+      "一句话定位",
+      "快速开始命令",
+      "目录说明",
+      "贡献方式"
+    ],
+    "try": "让一个没看过项目的人按 README 跑一遍。",
+    "tags": [
+      "README",
+      "开源",
+      "文档"
+    ],
+    "source": {
+      "name": "Claude Code Best Practice",
+      "url": "https://github.com/shanraisshan/claude-code-best-practice"
+    }
+  },
+  {
+    "id": "m84",
+    "cat": "成长",
+    "level": 4,
+    "title": "版本化提示与工作流",
+    "one": "把提示、技能和工作流当代码管理：版本号、变更记录、可回滚。",
+    "why": "改提示也是改行为，没有版本就无法比较和回退。",
+    "steps": [
+      "存进仓库",
+      "写 changelog",
+      "打版本号",
+      "出问题回滚"
+    ],
+    "try": "给你最常用的提示加一个版本号和 changelog。",
+    "tags": [
+      "版本",
+      "变更",
+      "回滚"
+    ],
+    "source": {
+      "name": "12-Factor Agents",
+      "url": "https://github.com/humanlayer/12-factor-agents"
+    }
+  }
+]

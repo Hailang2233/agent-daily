@@ -2,8 +2,8 @@
 
 每天一个可执行的 Agent 使用方法。纯静态、零依赖、可离线打开，也可以部署到 GitHub Pages 每天自动更新。
 
-- **60 条方法**：36 条内置 + 24 条改写自开源社区（附来源链接）
-- **每日 3 条**：由 GitHub Action 每天生成 `data/daily.js`，自动提交
+- **方法库每天增长**：36 条内置方法保持不变，社区方法每天自动放出 2 条（附来源链接）
+- **每天上新 + 每日 3 条**：GitHub Action 每天从 backlog 放出新方法，并生成 `data/daily.js` 自动提交
 - **本地问答**：底部输入你的问题，从方法库里匹配 3 条最相关的（不调用外部 API）
 - **热度榜**：匿名浏览计数（可选），看看大家都在看什么
 - **练习闭环**：打卡、连续天数、热力图、掌握标记、LV1–5 能力阶梯、每周复盘
@@ -29,8 +29,11 @@ icon.svg                图标源文件
 icon-256.png            favicon 与快捷方式图标
 data/
   config.js             站点配置（仓库地址、热度开关与命名空间）
-  extra-methods.js      24 条社区来源的方法
-  pool.json             每日轮换池（新增方法后要加进来）
+  backlog.json          待发布队列（每天自动放出 N 条）
+  extras.json           已发布的社区方法（含 releasedAt）
+  release-state.json    上次发布记录（自动，勿手改）
+  extra-methods.js      自动生成：给浏览器加载的 extras（勿手改）
+  pool.json             每日轮换池（自动同步，勿手改）
   daily.js              自动生成：今日 3 条（勿手改）
   heat.js               自动生成：匿名浏览计数（勿手改）
 scripts/
@@ -45,11 +48,14 @@ scripts/
 
 `daily.yml` 每天运行一次：
 
-1. `pick-daily.mjs` 用日期做种子，从 `pool.json` 选 3 条（优先不同维度），写入 `data/daily.js`；
-2. `fetch-heat.mjs` 拉取匿名浏览计数，写入 `data/heat.js`；
-3. 有变化就提交回仓库，`pages.yml` 随之部署。
+1. 从 `data/backlog.json` **放出 2 条新方法**到 `data/extras.json`（同一天只放一次；用环境变量 `RELEASE_PER_DAY` 可调整数量）；
+2. 同步 `data/pool.json`，再用日期做种子选 3 条，写入 `data/daily.js`；
+3. `fetch-heat.mjs` 拉取匿名浏览计数，写入 `data/heat.js`；
+4. 有变化就提交回仓库，`pages.yml` 随之部署。
 
-页面读取 `data/daily.js` 决定当天推荐，所以线上版本每天都会变；本地 `file://` 打开时读取的是仓库里已有的文件。
+所以线上版本每天会：**上新 2 条方法 + 换一组今日推荐**。backlog 放完后只继续轮换，不再新增。
+
+最近 7 天发布的方法会带「新」标签，方法库里也有「新」筛选。
 
 手动跑一次：
 
@@ -57,14 +63,19 @@ scripts/
 npm run update
 ```
 
+本地 `file://` 打开时读取的是仓库里已有的文件，不会自己联网更新。
+
 ## 添加一条方法
 
-1. 在 `data/extra-methods.js` 里追加一个对象（或直接改内置 36 条）：
+- **想让它每天自动放出来**：追加到 `data/backlog.json`，Action 每天放 2 条，自动写 `releasedAt`。
+- **想立刻发布**：追加到 `data/extras.json`，并跑一次 `npm run daily` 同步。
+
+对象格式：
 
 ```js
 {
-  id: "m61",
-  cat: "验证",          // 心法 / 上下文 / 提示 / 工作流 / 验证 / 成长
+  id: "m85",            // 不能和已有 id 重复
+  cat: "验证",           // 心法 / 上下文 / 提示 / 工作流 / 验证 / 成长
   level: 3,             // 1–5
   title: "一句话标题",
   one: "一句话结论",
@@ -76,9 +87,7 @@ npm run update
 }
 ```
 
-2. 把 `{ "id": "m61", "cat": "验证" }` 加进 `data/pool.json`，否则不会被每日轮换选中。
-
-新增方法会自动出现在方法库、问答检索、掌握统计里；原有 36 条不受影响。
+`pool.json` 和 `extra-methods.js` 由脚本自动同步，不用手改。新增方法会自动出现在方法库、问答检索、掌握统计里；原有 36 条不受影响。
 
 ## 热度计数与隐私
 
@@ -104,7 +113,7 @@ npm run update
 
 ## 方法来源与许可
 
-24 条社区方法来自以下开源项目，均为改写表述，逐条附了原仓库链接：
+社区方法来自以下开源项目，均为改写表述，逐条附了原仓库链接：
 
 - [shanraisshan/claude-code-best-practice](https://github.com/shanraisshan/claude-code-best-practice) — MIT
 - [humanlayer/12-factor-agents](https://github.com/humanlayer/12-factor-agents) — 许可见原仓库

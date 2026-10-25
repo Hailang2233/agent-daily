@@ -445,6 +445,7 @@ dialog.dlg::backdrop { background: rgba(0, 0, 0, .45); }
           <div class="meta-row">
             <span class="chip cat" id="todayCat">心法</span>
             <span class="chip level" id="todayLevel">L1</span>
+            <span class="chip new" id="todayNew" hidden>新</span>
           </div>
           <h3 id="todayTitle">正在载入…</h3>
           <p class="one" id="todayOne"></p>
@@ -973,6 +974,14 @@ function weekStart(d) {
 }
 const weekStartK = keyOf(weekStart(today));
 
+/* 最近 7 天发布的社区方法显示「新」 */
+function isRecent(m) {
+  if (!m || !m.releasedAt) return false;
+  const d = parseKey(m.releasedAt);
+  const diff = (today.getTime() - d.getTime()) / 86400000;
+  return diff >= 0 && diff <= 7;
+}
+
 /* ============================================================
    选择今日方法
    ============================================================ */
@@ -1053,6 +1062,7 @@ function renderToday() {
   const m = pickMethod();
   $("todayCat").textContent = m.cat;
   $("todayLevel").textContent = "L" + m.level;
+  $("todayNew").hidden = !isRecent(m);
   $("todayTitle").textContent = m.title;
   $("todayOne").textContent = m.one;
   $("todayWhy").textContent = m.why;
@@ -1529,7 +1539,7 @@ function ariaFor(k, lv) {
 function renderFilters() {
   const box = $("filters");
   box.innerHTML = "";
-  ["全部"].concat(CATS).forEach(c => {
+  ["全部", "新"].concat(CATS).forEach(c => {
     const b = document.createElement("button");
     b.className = "fbtn" + (activeCat === c ? " on" : "");
     b.textContent = c;
@@ -1549,7 +1559,7 @@ function renderLibrary() {
   const q = query.trim().toLowerCase();
   const all = allMethods();
   const list = all.filter(m => {
-    const inCat = activeCat === "全部" || m.cat === activeCat;
+    const inCat = activeCat === "全部" ? true : (activeCat === "新" ? isRecent(m) : m.cat === activeCat);
     const hay = (m.cat + " " + m.title + " " + m.one + " " + m.why + " " + m.steps.join(" ")).toLowerCase();
     return inCat && (!q || hay.includes(q));
   });
@@ -1581,7 +1591,7 @@ function renderLibrary() {
       '<p class="m-one">' + esc(m.one) + '</p>' +
       '<div class="m-meta"><span class="chip cat">' + m.cat + '</span><span class="chip level">L' + m.level + '</span>' +
         (m.custom ? '<span class="chip custom">自建</span>' : '') +
-        (m.isNew ? '<span class="chip new">新</span>' : '') + '</div>' +
+        (isRecent(m) ? '<span class="chip new">新</span>' : '') + '</div>' +
       '<details><summary>展开做法</summary>' +
         (m.why ? '<div class="dt">' + esc(m.why) + '</div>' : '') +
         '<ol>' + m.steps.map(s => '<li>' + esc(s) + '</li>').join('') + '</ol>' +
