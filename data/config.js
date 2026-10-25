@@ -4,11 +4,11 @@
  */
 (function (root) {
   var CONFIG = {
-    repoUrl: "", // 例如 "https://github.com/yourname/agent-daily"
+    repoUrl: "https://github.com/Hailang2233/agent-daily",
     heat: {
       enabled: true,
       baseUrl: "https://abacus.jasoncameron.dev",
-      namespace: "agent-daily-demo-8f3a"
+      namespace: "agent-daily-hailang2233"
     }
   };
   if (typeof module !== "undefined" && module.exports) module.exports = CONFIG;
