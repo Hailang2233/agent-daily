@@ -110,6 +110,8 @@ npm run update
 5. 打开 **Actions → Deploy to GitHub Pages**，或在 Settings 里看部署地址。
 
 > 如果仓库默认分支不是 `main`，同步修改 `pages.yml` 里的 `branches`。
+>
+> 如果 Daily update 里 `git push` 失败：到 **Settings → Actions → General → Workflow permissions**，选 **Read and write permissions**。
 
 ## 方法来源与许可
 
