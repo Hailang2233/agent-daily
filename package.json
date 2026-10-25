@@ -1,0 +1,13 @@
+{
+  "name": "agent-daily",
+  "version": "1.0.0",
+  "private": true,
+  "description": "每天一个可执行的 Agent 使用方法，支持每日自动更新、打卡、热度榜与本地问答。",
+  "license": "MIT",
+  "scripts": {
+    "daily": "node scripts/pick-daily.mjs",
+    "heat": "node scripts/fetch-heat.mjs",
+    "update": "node scripts/pick-daily.mjs && node scripts/fetch-heat.mjs",
+    "serve": "python -m http.server 8080"
+  }
+}

@@ -1,0 +1,43 @@
+name: Daily update
+
+on:
+  schedule:
+    # 每天 00:00 UTC = 08:00 北京时间
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-update
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Pick today's three methods
+        run: node scripts/pick-daily.mjs
+
+      - name: Sync anonymous view counts
+        run: node scripts/fetch-heat.mjs
+        continue-on-error: true
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/daily.js data/heat.js
+          if git diff --cached --quiet; then
+            echo "No changes"
+          else
+            git commit -m "chore: daily update $(date -u +%F)"
+            git push
+          fi
