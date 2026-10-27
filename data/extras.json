@@ -648,5 +648,55 @@
       "url": "https://github.com/shanraisshan/claude-code-best-practice"
     },
     "releasedAt": "2026-10-26"
+  },
+  {
+    "id": "m63",
+    "cat": "心法",
+    "level": 3,
+    "title": "先验证最危险的假设",
+    "one": "动手前先找出「如果错了全盘皆输」的那个假设，用最小实验验证。",
+    "why": "大部分返工不是执行慢，而是方向从一开始就错。",
+    "steps": [
+      "列出关键假设",
+      "标出最危险的一个",
+      "设计 10 分钟实验",
+      "结果决定是否继续"
+    ],
+    "try": "今天先花 10 分钟验证一个关键假设。",
+    "tags": [
+      "假设",
+      "验证",
+      "方向"
+    ],
+    "source": {
+      "name": "Claude Code Best Practice",
+      "url": "https://github.com/shanraisshan/claude-code-best-practice"
+    },
+    "releasedAt": "2026-10-27"
+  },
+  {
+    "id": "m64",
+    "cat": "上下文",
+    "level": 3,
+    "title": "渐进披露",
+    "one": "只先加载「名字 + 描述」，需要时再读完整说明。",
+    "why": "一次把所有资料塞进上下文，会挤掉真正相关的内容。",
+    "steps": [
+      "给技能和文档写短描述",
+      "按任务匹配再展开",
+      "只读当前需要的部分",
+      "用完就退出"
+    ],
+    "try": "把一个长文档拆成「摘要 + 分段」，按需读取。",
+    "tags": [
+      "渐进披露",
+      "技能",
+      "上下文"
+    ],
+    "source": {
+      "name": "Agent Skills",
+      "url": "https://github.com/agentskills/agentskills"
+    },
+    "releasedAt": "2026-10-27"
   }
 ]
