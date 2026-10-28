@@ -705,6 +705,56 @@
       "url": "https://github.com/agentskills/agentskills"
     },
     "releasedAt": "2026-10-27"
+  },
+  {
+    "id": "m65",
+    "cat": "上下文",
+    "level": 3,
+    "title": "记忆分层",
+    "one": "区分「本次任务的工作记忆」和「长期保留的决定与偏好」。",
+    "why": "把所有聊天记录都当记忆，会越来越重；只留决定才能复用。",
+    "steps": [
+      "工作记忆随任务结束丢弃",
+      "决定和偏好写进文件",
+      "定期清理过期记忆",
+      "新任务只带必要记忆"
+    ],
+    "try": "给当前项目建一份「决定记录」，只写结论不写过程。",
+    "tags": [
+      "记忆",
+      "决定",
+      "上下文"
+    ],
+    "source": {
+      "name": "Awesome Context Engineering",
+      "url": "https://github.com/Meirtz/Awesome-Context-Engineering"
+    },
+    "releasedAt": "2026-10-28"
+  },
+  {
+    "id": "m66",
+    "cat": "上下文",
+    "level": 2,
+    "title": "结构化数据注入",
+    "one": "能给 JSON 或表格就不要给一大段散文。",
+    "why": "结构化输入让字段和边界明确，模型更少猜。",
+    "steps": [
+      "把资料整理成字段",
+      "缺失值显式写 null",
+      "标注类型和单位",
+      "让它按 schema 输出"
+    ],
+    "try": "下次贴数据前先整理成表格或 JSON。",
+    "tags": [
+      "JSON",
+      "表格",
+      "结构化"
+    ],
+    "source": {
+      "name": "Awesome Context Engineering",
+      "url": "https://github.com/Meirtz/Awesome-Context-Engineering"
+    },
+    "releasedAt": "2026-10-28"
   }
 ];
 });
