@@ -1,53 +1,5 @@
 [
   {
-    "id": "m67",
-    "cat": "上下文",
-    "level": 3,
-    "title": "让 agent 写工作笔记",
-    "one": "让它把中间发现写成一份工作笔记，后续只读笔记。",
-    "why": "中间过程不用反复回灌，笔记成为可复用的压缩上下文。",
-    "steps": [
-      "每完成一小步写 3 行发现",
-      "记录未决问题",
-      "后续只读笔记",
-      "结束归档"
-    ],
-    "try": "让 agent 为今天的任务写一份工作笔记。",
-    "tags": [
-      "笔记",
-      "压缩",
-      "上下文"
-    ],
-    "source": {
-      "name": "Awesome Context Engineering",
-      "url": "https://github.com/Meirtz/Awesome-Context-Engineering"
-    }
-  },
-  {
-    "id": "m68",
-    "cat": "上下文",
-    "level": 3,
-    "title": "上下文质量检查",
-    "one": "加资料前先问「这条会改变结论吗」，不会就别加。",
-    "why": "上下文不是越多越好，低相关信息会稀释注意力。",
-    "steps": [
-      "逐条问相关性",
-      "删掉重复和过时内容",
-      "只留有决策价值的",
-      "记录删除原因"
-    ],
-    "try": "把当前上下文删掉三分之一再继续。",
-    "tags": [
-      "相关性",
-      "清理",
-      "上下文"
-    ],
-    "source": {
-      "name": "Awesome Context Engineering",
-      "url": "https://github.com/Meirtz/Awesome-Context-Engineering"
-    }
-  },
-  {
     "id": "m69",
     "cat": "提示",
     "level": 2,
