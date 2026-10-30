@@ -805,6 +805,56 @@
       "url": "https://github.com/Meirtz/Awesome-Context-Engineering"
     },
     "releasedAt": "2026-10-29"
+  },
+  {
+    "id": "m69",
+    "cat": "提示",
+    "level": 2,
+    "title": "先推理再结论",
+    "one": "要求它先写出推理过程，再给结论。",
+    "why": "直接要结论容易得到「看起来合理」的答案；推理能暴露漏洞。",
+    "steps": [
+      "要求列出前提",
+      "写出推理链",
+      "再给结论",
+      "检查前提是否成立"
+    ],
+    "try": "让 agent 对一个判断先写推理再下结论。",
+    "tags": [
+      "推理",
+      "思维链",
+      "结论"
+    ],
+    "source": {
+      "name": "Prompt Engineering Guide",
+      "url": "https://github.com/dair-ai/Prompt-Engineering-Guide"
+    },
+    "releasedAt": "2026-10-30"
+  },
+  {
+    "id": "m70",
+    "cat": "提示",
+    "level": 3,
+    "title": "多次采样取一致",
+    "one": "对关键判断采样多次，看答案是否稳定。",
+    "why": "单次正确可能是运气；多次一致才说明结论稳。",
+    "steps": [
+      "同一问题问 3 次",
+      "比较差异",
+      "不一致就找原因",
+      "只信稳定的部分"
+    ],
+    "try": "把一个重要判断问三遍，比较结果。",
+    "tags": [
+      "采样",
+      "一致性",
+      "可靠性"
+    ],
+    "source": {
+      "name": "Prompt Engineering Guide",
+      "url": "https://github.com/dair-ai/Prompt-Engineering-Guide"
+    },
+    "releasedAt": "2026-10-30"
   }
 ];
 });
