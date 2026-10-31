@@ -855,6 +855,56 @@
       "url": "https://github.com/dair-ai/Prompt-Engineering-Guide"
     },
     "releasedAt": "2026-10-30"
+  },
+  {
+    "id": "m71",
+    "cat": "提示",
+    "level": 3,
+    "title": "提示链",
+    "one": "把复杂任务拆成串联的小提示，每步验证后再进入下一步。",
+    "why": "一次性长提示难以定位错误；链条让每步可检查。",
+    "steps": [
+      "拆成 3–5 步",
+      "每步定义输入输出",
+      "验证通过再继续",
+      "失败只重跑该步"
+    ],
+    "try": "把一个复杂任务改成三步提示链。",
+    "tags": [
+      "提示链",
+      "拆解",
+      "验证"
+    ],
+    "source": {
+      "name": "Prompt Engineering Guide",
+      "url": "https://github.com/dair-ai/Prompt-Engineering-Guide"
+    },
+    "releasedAt": "2026-10-31"
+  },
+  {
+    "id": "m72",
+    "cat": "提示",
+    "level": 3,
+    "title": "推理-行动循环",
+    "one": "让它按「想一步 → 做一步 → 看结果」循环，而不是一次想完。",
+    "why": "真实任务需要根据工具结果调整，闭环比长计划可靠。",
+    "steps": [
+      "写当前判断",
+      "执行一个动作",
+      "读结果",
+      "更新判断再继续"
+    ],
+    "try": "让 agent 用「想—做—看」循环完成一个小任务。",
+    "tags": [
+      "ReAct",
+      "工具",
+      "循环"
+    ],
+    "source": {
+      "name": "Prompt Engineering Guide",
+      "url": "https://github.com/dair-ai/Prompt-Engineering-Guide"
+    },
+    "releasedAt": "2026-10-31"
   }
 ];
 });
