@@ -898,5 +898,55 @@
       "url": "https://github.com/dair-ai/Prompt-Engineering-Guide"
     },
     "releasedAt": "2026-10-31"
+  },
+  {
+    "id": "m73",
+    "cat": "提示",
+    "level": 2,
+    "title": "用代码算，不靠心算",
+    "one": "计算、统计、格式转换交给代码执行。",
+    "why": "模型心算容易错，代码结果可复现、可检查。",
+    "steps": [
+      "让它写脚本",
+      "实际运行",
+      "用输出做结论",
+      "保留脚本"
+    ],
+    "try": "下次遇到计算，要求它写代码并运行。",
+    "tags": [
+      "代码",
+      "计算",
+      "可复现"
+    ],
+    "source": {
+      "name": "Prompt Engineering Guide",
+      "url": "https://github.com/dair-ai/Prompt-Engineering-Guide"
+    },
+    "releasedAt": "2026-11-01"
+  },
+  {
+    "id": "m74",
+    "cat": "工作流",
+    "level": 3,
+    "title": "任务队列",
+    "one": "把待办写成队列文件，agent 每次只取队首任务。",
+    "why": "一次处理一堆任务会互相干扰；队列让状态清楚。",
+    "steps": [
+      "建 todo 文件",
+      "标状态和优先级",
+      "一次只做一项",
+      "完成后更新"
+    ],
+    "try": "给今天的任务建一个队列文件。",
+    "tags": [
+      "队列",
+      "待办",
+      "状态"
+    ],
+    "source": {
+      "name": "12-Factor Agents",
+      "url": "https://github.com/humanlayer/12-factor-agents"
+    },
+    "releasedAt": "2026-11-01"
   }
 ]
