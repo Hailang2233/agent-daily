@@ -1,53 +1,5 @@
 [
   {
-    "id": "m77",
-    "cat": "工作流",
-    "level": 4,
-    "title": "自己掌控控制流",
-    "one": "循环、分支、重试由你显式控制，不要藏进框架黑盒。",
-    "why": "出问题时能定位是哪一步，也方便插入人工确认。",
-    "steps": [
-      "画出控制流",
-      "显式写分支和重试",
-      "记录每次决策",
-      "黑盒只做工具"
-    ],
-    "try": "把一个黑盒流程画成显式步骤图。",
-    "tags": [
-      "控制流",
-      "可观测",
-      "编排"
-    ],
-    "source": {
-      "name": "12-Factor Agents",
-      "url": "https://github.com/humanlayer/12-factor-agents"
-    }
-  },
-  {
-    "id": "m78",
-    "cat": "工作流",
-    "level": 4,
-    "title": "无状态 reducer",
-    "one": "把每次事件映射成新状态，agent 本身不保存隐含状态。",
-    "why": "可重放、可测试、可恢复，调试成本低。",
-    "steps": [
-      "定义事件",
-      "定义状态",
-      "写纯函数处理",
-      "用事件日志重放"
-    ],
-    "try": "用「事件 → 状态」的方式记录一次任务。",
-    "tags": [
-      "事件",
-      "状态",
-      "可重放"
-    ],
-    "source": {
-      "name": "12-Factor Agents",
-      "url": "https://github.com/humanlayer/12-factor-agents"
-    }
-  },
-  {
     "id": "m79",
     "cat": "工作流",
     "level": 3,
