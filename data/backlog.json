@@ -1,53 +1,5 @@
 [
   {
-    "id": "m79",
-    "cat": "工作流",
-    "level": 3,
-    "title": "多入口触发",
-    "one": "同一个 agent 支持命令行、网页、消息等多个入口。",
-    "why": "用户在哪，入口就在哪；不必为了用 agent 换工具。",
-    "steps": [
-      "抽出核心逻辑",
-      "做薄适配层",
-      "统一输入输出",
-      "各入口共用状态"
-    ],
-    "try": "给一个常用脚本加一个最简单的网页入口。",
-    "tags": [
-      "入口",
-      "集成",
-      "体验"
-    ],
-    "source": {
-      "name": "12-Factor Agents",
-      "url": "https://github.com/humanlayer/12-factor-agents"
-    }
-  },
-  {
-    "id": "m80",
-    "cat": "验证",
-    "level": 3,
-    "title": "用测试锁定行为",
-    "one": "先把关键行为写成测试，再让 agent 改代码。",
-    "why": "测试是「不许变」的契约，能防止改 A 坏 B。",
-    "steps": [
-      "写 3 个关键用例",
-      "先跑通",
-      "再让 agent 修改",
-      "每次改完重跑"
-    ],
-    "try": "给一个易碎功能补 3 个测试。",
-    "tags": [
-      "测试",
-      "契约",
-      "回归"
-    ],
-    "source": {
-      "name": "Claude Code Best Practice",
-      "url": "https://github.com/shanraisshan/claude-code-best-practice"
-    }
-  },
-  {
     "id": "m81",
     "cat": "验证",
     "level": 3,
