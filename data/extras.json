@@ -1098,5 +1098,55 @@
       "url": "https://github.com/shanraisshan/claude-code-best-practice"
     },
     "releasedAt": "2026-11-04"
+  },
+  {
+    "id": "m81",
+    "cat": "验证",
+    "level": 3,
+    "title": "分层验证",
+    "one": "单元、集成、端到端各验一层，别只跑最外层。",
+    "why": "外层通过不代表内层正确；分层能快速定位问题。",
+    "steps": [
+      "列出三层检查",
+      "每层有明确命令",
+      "失败先修该层",
+      "全绿才交付"
+    ],
+    "try": "给当前任务补一层集成检查。",
+    "tags": [
+      "测试",
+      "分层",
+      "集成"
+    ],
+    "source": {
+      "name": "Claude Code Best Practice",
+      "url": "https://github.com/shanraisshan/claude-code-best-practice"
+    },
+    "releasedAt": "2026-11-05"
+  },
+  {
+    "id": "m82",
+    "cat": "验证",
+    "level": 4,
+    "title": "红队输入",
+    "one": "用恶意或边界输入测试 agent，而不只用正常样例。",
+    "why": "真实世界会遇到 prompt 注入、空值、超长输入。",
+    "steps": [
+      "准备异常样例",
+      "测注入、越权和空值",
+      "记录失败",
+      "加防护"
+    ],
+    "try": "用 3 个异常输入测一次你的 agent。",
+    "tags": [
+      "红队",
+      "注入",
+      "边界"
+    ],
+    "source": {
+      "name": "Prompt Engineering Guide",
+      "url": "https://github.com/dair-ai/Prompt-Engineering-Guide"
+    },
+    "releasedAt": "2026-11-05"
   }
 ]
