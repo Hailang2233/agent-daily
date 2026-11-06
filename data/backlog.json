@@ -1,53 +1,5 @@
 [
   {
-    "id": "m83",
-    "cat": "成长",
-    "level": 3,
-    "title": "文档即产品",
-    "one": "README 写清「是什么、怎么跑、怎么改」，它就是项目的门面。",
-    "why": "开源项目的第一道门槛，是别人能不能在 5 分钟内跑起来。",
-    "steps": [
-      "一句话定位",
-      "快速开始命令",
-      "目录说明",
-      "贡献方式"
-    ],
-    "try": "让一个没看过项目的人按 README 跑一遍。",
-    "tags": [
-      "README",
-      "开源",
-      "文档"
-    ],
-    "source": {
-      "name": "Claude Code Best Practice",
-      "url": "https://github.com/shanraisshan/claude-code-best-practice"
-    }
-  },
-  {
-    "id": "m84",
-    "cat": "成长",
-    "level": 4,
-    "title": "版本化提示与工作流",
-    "one": "把提示、技能和工作流当代码管理：版本号、变更记录、可回滚。",
-    "why": "改提示也是改行为，没有版本就无法比较和回退。",
-    "steps": [
-      "存进仓库",
-      "写 changelog",
-      "打版本号",
-      "出问题回滚"
-    ],
-    "try": "给你最常用的提示加一个版本号和 changelog。",
-    "tags": [
-      "版本",
-      "变更",
-      "回滚"
-    ],
-    "source": {
-      "name": "12-Factor Agents",
-      "url": "https://github.com/humanlayer/12-factor-agents"
-    }
-  },
-  {
     "id": "m85",
     "cat": "心法",
     "level": 3,
