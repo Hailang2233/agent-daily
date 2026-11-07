@@ -1198,5 +1198,55 @@
       "url": "https://github.com/humanlayer/12-factor-agents"
     },
     "releasedAt": "2026-11-06"
+  },
+  {
+    "id": "m85",
+    "cat": "心法",
+    "level": 3,
+    "title": "先定义失败模式",
+    "one": "动手前写出「这个 agent 可能怎么坏」，再设计防护。",
+    "why": "只想着成功路径，失败会在真实使用里以更贵的方式出现。",
+    "steps": [
+      "列出 5 种失败",
+      "标出最严重的一种",
+      "设计检测方式",
+      "设计兜底动作"
+    ],
+    "try": "给当前 agent 列 5 个失败模式。",
+    "tags": [
+      "失败",
+      "风险",
+      "防护"
+    ],
+    "source": {
+      "name": "12-Factor Agents",
+      "url": "https://github.com/humanlayer/12-factor-agents"
+    },
+    "releasedAt": "2026-11-07"
+  },
+  {
+    "id": "m86",
+    "cat": "心法",
+    "level": 3,
+    "title": "给方案设成本预算",
+    "one": "先定 token、延迟、调用次数的上限，再选方案。",
+    "why": "没有预算，方案会越做越重，最后没法上线。",
+    "steps": [
+      "定上限",
+      "估算单次成本",
+      "选最简方案",
+      "超预算就砍功能"
+    ],
+    "try": "给今天的方案写一个成本上限。",
+    "tags": [
+      "成本",
+      "预算",
+      "延迟"
+    ],
+    "source": {
+      "name": "12-Factor Agents",
+      "url": "https://github.com/humanlayer/12-factor-agents"
+    },
+    "releasedAt": "2026-11-07"
   }
 ]
