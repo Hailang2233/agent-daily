@@ -1248,5 +1248,55 @@
       "url": "https://github.com/humanlayer/12-factor-agents"
     },
     "releasedAt": "2026-11-07"
+  },
+  {
+    "id": "m87",
+    "cat": "心法",
+    "level": 3,
+    "title": "单 agent 还是多 agent",
+    "one": "默认单 agent，只有职责确实冲突时才拆多 agent。",
+    "why": "多 agent 带来协调成本和不可预测性，多数任务不需要。",
+    "steps": [
+      "先试单 agent",
+      "列出无法兼顾的职责",
+      "再决定是否拆",
+      "定义通信协议"
+    ],
+    "try": "把准备拆多 agent 的任务先用单 agent 试一次。",
+    "tags": [
+      "多 agent",
+      "拆分",
+      "复杂度"
+    ],
+    "source": {
+      "name": "12-Factor Agents",
+      "url": "https://github.com/humanlayer/12-factor-agents"
+    },
+    "releasedAt": "2026-11-08"
+  },
+  {
+    "id": "m88",
+    "cat": "心法",
+    "level": 2,
+    "title": "把 agent 当新同事 onboarding",
+    "one": "像带新人一样给它入职文档、权限和第一周任务。",
+    "why": "新人上手靠上下文和边界，agent 也一样。",
+    "steps": [
+      "写项目背景",
+      "给最小权限",
+      "安排小任务",
+      "逐步放权"
+    ],
+    "try": "给 agent 写一份一页的入职文档。",
+    "tags": [
+      "入职",
+      "上下文",
+      "权限"
+    ],
+    "source": {
+      "name": "Claude Code Best Practice",
+      "url": "https://github.com/shanraisshan/claude-code-best-practice"
+    },
+    "releasedAt": "2026-11-08"
   }
 ]
