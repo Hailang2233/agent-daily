@@ -1305,6 +1305,56 @@
       "url": "https://github.com/shanraisshan/claude-code-best-practice"
     },
     "releasedAt": "2026-11-08"
+  },
+  {
+    "id": "m89",
+    "cat": "上下文",
+    "level": 3,
+    "title": "稳定前缀 + 缓存",
+    "one": "把不变的内容放前面，变化的内容放后面，方便复用缓存。",
+    "why": "稳定前缀能命中缓存，省钱省延迟，也减少上下文抖动。",
+    "steps": [
+      "固定系统提示",
+      "固定工具说明",
+      "变量放尾部",
+      "观测缓存命中"
+    ],
+    "try": "把提示拆成「固定前缀 + 变量尾部」。",
+    "tags": [
+      "缓存",
+      "前缀",
+      "成本"
+    ],
+    "source": {
+      "name": "Awesome Context Engineering",
+      "url": "https://github.com/Meirtz/Awesome-Context-Engineering"
+    },
+    "releasedAt": "2026-11-09"
+  },
+  {
+    "id": "m90",
+    "cat": "上下文",
+    "level": 2,
+    "title": "只保留可执行信息",
+    "one": "上下文里每条信息都要能改变下一步动作，否则删掉。",
+    "why": "背景故事再详细，不改变行动就是噪音。",
+    "steps": [
+      "逐条问「会影响下一步吗」",
+      "不会就删",
+      "保留决策依据",
+      "记录来源"
+    ],
+    "try": "把当前上下文删到只剩可执行信息。",
+    "tags": [
+      "精简",
+      "相关性",
+      "上下文"
+    ],
+    "source": {
+      "name": "Awesome Context Engineering",
+      "url": "https://github.com/Meirtz/Awesome-Context-Engineering"
+    },
+    "releasedAt": "2026-11-09"
   }
 ];
 });
