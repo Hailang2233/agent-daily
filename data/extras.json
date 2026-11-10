@@ -1348,5 +1348,55 @@
       "url": "https://github.com/Meirtz/Awesome-Context-Engineering"
     },
     "releasedAt": "2026-11-09"
+  },
+  {
+    "id": "m91",
+    "cat": "上下文",
+    "level": 3,
+    "title": "用检索代替记忆",
+    "one": "需要事实时去查，不要指望模型记住。",
+    "why": "记忆会过期、会混淆；检索结果可追溯。",
+    "steps": [
+      "建可检索的资料库",
+      "查完注明来源",
+      "关键事实二次核对",
+      "定期更新"
+    ],
+    "try": "下次问事实类问题，先检索再回答。",
+    "tags": [
+      "检索",
+      "RAG",
+      "事实"
+    ],
+    "source": {
+      "name": "Prompt Engineering Guide",
+      "url": "https://github.com/dair-ai/Prompt-Engineering-Guide"
+    },
+    "releasedAt": "2026-11-10"
+  },
+  {
+    "id": "m92",
+    "cat": "上下文",
+    "level": 3,
+    "title": "上下文快照",
+    "one": "重要任务开始时冻结一份上下文快照，便于复现。",
+    "why": "上下文漂移后，同一个问题会得到不同答案，无法比较。",
+    "steps": [
+      "保存输入",
+      "记录版本",
+      "记录工具结果",
+      "复现时用同一快照"
+    ],
+    "try": "给今天的关键任务存一份上下文快照。",
+    "tags": [
+      "快照",
+      "复现",
+      "上下文"
+    ],
+    "source": {
+      "name": "Awesome Context Engineering",
+      "url": "https://github.com/Meirtz/Awesome-Context-Engineering"
+    },
+    "releasedAt": "2026-11-10"
   }
 ]
