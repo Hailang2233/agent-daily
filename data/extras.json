@@ -1398,5 +1398,55 @@
       "url": "https://github.com/Meirtz/Awesome-Context-Engineering"
     },
     "releasedAt": "2026-11-10"
+  },
+  {
+    "id": "m93",
+    "cat": "提示",
+    "level": 2,
+    "title": "先定评分标准",
+    "one": "用评分表代替「好一点」「专业一点」这类形容词。",
+    "why": "有维度有分档，输出才能被稳定比较和迭代。",
+    "steps": [
+      "定 3–5 个维度",
+      "每维 1–5 分",
+      "写清每档标准",
+      "按表打分"
+    ],
+    "try": "给一个反复调整的输出写一张评分表。",
+    "tags": [
+      "评分",
+      "标准",
+      "迭代"
+    ],
+    "source": {
+      "name": "Claude Code Best Practice",
+      "url": "https://github.com/shanraisshan/claude-code-best-practice"
+    },
+    "releasedAt": "2026-11-11"
+  },
+  {
+    "id": "m94",
+    "cat": "提示",
+    "level": 2,
+    "title": "先定输出 schema",
+    "one": "先写清输出字段和类型，再让它填。",
+    "why": "schema 让结果可解析、可校验，减少格式返工。",
+    "steps": [
+      "定字段",
+      "定类型",
+      "定必填",
+      "让它按 schema 输出"
+    ],
+    "try": "给一个抽取任务先写 JSON schema。",
+    "tags": [
+      "schema",
+      "结构化",
+      "格式"
+    ],
+    "source": {
+      "name": "12-Factor Agents",
+      "url": "https://github.com/humanlayer/12-factor-agents"
+    },
+    "releasedAt": "2026-11-11"
   }
 ]
