@@ -1,53 +1,5 @@
 [
   {
-    "id": "m95",
-    "cat": "提示",
-    "level": 2,
-    "title": "先问意图，再问做法",
-    "one": "先让它复述「为什么要做」，再讨论怎么做。",
-    "why": "做法可以有很多种，意图错了全白做。",
-    "steps": [
-      "问目标",
-      "问约束",
-      "问成功标准",
-      "再给做法"
-    ],
-    "try": "下个任务先让 agent 说出你的真实意图。",
-    "tags": [
-      "意图",
-      "目标",
-      "沟通"
-    ],
-    "source": {
-      "name": "Claude Code Best Practice",
-      "url": "https://github.com/shanraisshan/claude-code-best-practice"
-    }
-  },
-  {
-    "id": "m96",
-    "cat": "提示",
-    "level": 3,
-    "title": "给角色划边界",
-    "one": "明确它负责什么、不负责什么、何时转交给人。",
-    "why": "边界不清会导致越权、漏项和互相等待。",
-    "steps": [
-      "列职责",
-      "列非职责",
-      "定转交条件",
-      "写进说明"
-    ],
-    "try": "给当前 agent 写一条「不负责」清单。",
-    "tags": [
-      "边界",
-      "职责",
-      "转交"
-    ],
-    "source": {
-      "name": "12-Factor Agents",
-      "url": "https://github.com/humanlayer/12-factor-agents"
-    }
-  },
-  {
     "id": "m97",
     "cat": "工作流",
     "level": 3,
