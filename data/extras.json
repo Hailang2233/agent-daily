@@ -1498,5 +1498,55 @@
       "url": "https://github.com/humanlayer/12-factor-agents"
     },
     "releasedAt": "2026-11-12"
+  },
+  {
+    "id": "m97",
+    "cat": "工作流",
+    "level": 3,
+    "title": "工具少而清晰",
+    "one": "工具数量少、名字直白、参数简单，比工具多更重要。",
+    "why": "工具越多，选择越难，误用越多。",
+    "steps": [
+      "合并相似工具",
+      "用动词命名",
+      "参数最小化",
+      "写清何时不用"
+    ],
+    "try": "把现有工具合并掉两个。",
+    "tags": [
+      "工具",
+      "命名",
+      "简化"
+    ],
+    "source": {
+      "name": "12-Factor Agents",
+      "url": "https://github.com/humanlayer/12-factor-agents"
+    },
+    "releasedAt": "2026-11-13"
+  },
+  {
+    "id": "m98",
+    "cat": "工作流",
+    "level": 3,
+    "title": "工具失败要可恢复",
+    "one": "工具报错要返回结构化原因和可执行的下一步。",
+    "why": "一句「失败」会让 agent 乱试；结构化错误能指向修复。",
+    "steps": [
+      "定义错误码",
+      "给修复建议",
+      "标出可重试",
+      "记录失败"
+    ],
+    "try": "给一个常用工具加结构化错误。",
+    "tags": [
+      "错误",
+      "重试",
+      "工具"
+    ],
+    "source": {
+      "name": "12-Factor Agents",
+      "url": "https://github.com/humanlayer/12-factor-agents"
+    },
+    "releasedAt": "2026-11-13"
   }
 ]
