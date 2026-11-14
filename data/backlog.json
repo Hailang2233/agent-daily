@@ -1,53 +1,5 @@
 [
   {
-    "id": "m99",
-    "cat": "工作流",
-    "level": 3,
-    "title": "人工确认门",
-    "one": "不可逆或高风险动作前，强制停下来等人确认。",
-    "why": "agent 的速度优势，在错误操作上会变成损失放大器。",
-    "steps": [
-      "列出高风险动作",
-      "加确认",
-      "显示影响范围",
-      "记录确认人"
-    ],
-    "try": "给删除、发布或付款类操作加一道确认。",
-    "tags": [
-      "确认",
-      "风险",
-      "人工"
-    ],
-    "source": {
-      "name": "12-Factor Agents",
-      "url": "https://github.com/humanlayer/12-factor-agents"
-    }
-  },
-  {
-    "id": "m100",
-    "cat": "工作流",
-    "level": 3,
-    "title": "最小权限与沙箱",
-    "one": "只给完成任务必需的权限，能隔离就隔离。",
-    "why": "权限越大，出错时的破坏面越大。",
-    "steps": [
-      "列必需权限",
-      "默认只读",
-      "网络和文件隔离",
-      "定期回收"
-    ],
-    "try": "检查一个 agent 的权限，去掉一项不必要的。",
-    "tags": [
-      "权限",
-      "沙箱",
-      "安全"
-    ],
-    "source": {
-      "name": "12-Factor Agents",
-      "url": "https://github.com/humanlayer/12-factor-agents"
-    }
-  },
-  {
     "id": "m101",
     "cat": "工作流",
     "level": 4,
