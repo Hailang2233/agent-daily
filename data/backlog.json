@@ -1,53 +1,5 @@
 [
   {
-    "id": "m101",
-    "cat": "工作流",
-    "level": 4,
-    "title": "可观测：日志与追踪",
-    "one": "记录输入、输出、工具调用和耗时，出问题能回放。",
-    "why": "没有追踪，只能靠猜；有追踪才能定位和优化。",
-    "steps": [
-      "记录请求 ID",
-      "记录工具调用",
-      "记录耗时",
-      "脱敏保存"
-    ],
-    "try": "给一个 agent 加一条完整的调用日志。",
-    "tags": [
-      "日志",
-      "追踪",
-      "观测"
-    ],
-    "source": {
-      "name": "Awesome Context Engineering",
-      "url": "https://github.com/Meirtz/Awesome-Context-Engineering"
-    }
-  },
-  {
-    "id": "m102",
-    "cat": "工作流",
-    "level": 3,
-    "title": "回归评测集",
-    "one": "准备一组固定用例，每次改提示或模型都跑一遍。",
-    "why": "没有基线，「感觉变好了」可能只是换了个错法。",
-    "steps": [
-      "选 10–20 个代表用例",
-      "记录期望",
-      "每次改动跑",
-      "对比通过率"
-    ],
-    "try": "给当前 agent 建 10 条回归用例。",
-    "tags": [
-      "评测",
-      "回归",
-      "基线"
-    ],
-    "source": {
-      "name": "Claude Code Best Practice",
-      "url": "https://github.com/shanraisshan/claude-code-best-practice"
-    }
-  },
-  {
     "id": "m103",
     "cat": "验证",
     "level": 3,
