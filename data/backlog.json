@@ -1,53 +1,5 @@
 [
   {
-    "id": "m103",
-    "cat": "验证",
-    "level": 3,
-    "title": "离线评测",
-    "one": "上线前先在固定数据集上打分，而不是直接看感觉。",
-    "why": "线上试错成本高，离线评测能提前暴露退化。",
-    "steps": [
-      "定指标",
-      "跑基线",
-      "改一版再跑",
-      "只上线不退化的"
-    ],
-    "try": "给一个改动做一次离线对比。",
-    "tags": [
-      "离线",
-      "评测",
-      "指标"
-    ],
-    "source": {
-      "name": "Awesome Context Engineering",
-      "url": "https://github.com/Meirtz/Awesome-Context-Engineering"
-    }
-  },
-  {
-    "id": "m104",
-    "cat": "验证",
-    "level": 4,
-    "title": "灰度发布",
-    "one": "新版本先给小流量，观察指标再全量。",
-    "why": "一次性全量会把未知问题放大到所有用户。",
-    "steps": [
-      "选小流量",
-      "定观察指标",
-      "设回滚线",
-      "逐步放量"
-    ],
-    "try": "给下次 agent 更新定一个灰度比例。",
-    "tags": [
-      "灰度",
-      "发布",
-      "回滚"
-    ],
-    "source": {
-      "name": "12-Factor Agents",
-      "url": "https://github.com/humanlayer/12-factor-agents"
-    }
-  },
-  {
     "id": "m105",
     "cat": "验证",
     "level": 3,
