@@ -1698,5 +1698,55 @@
       "url": "https://github.com/humanlayer/12-factor-agents"
     },
     "releasedAt": "2026-11-16"
+  },
+  {
+    "id": "m105",
+    "cat": "验证",
+    "level": 3,
+    "title": "用户反馈闭环",
+    "one": "把点赞、点踩、报错变成评测样本，而不是看完就算。",
+    "why": "反馈只有进入数据集，才能防止同一个问题再次发生。",
+    "steps": [
+      "收集反馈",
+      "归类原因",
+      "加入评测集",
+      "修复后回归"
+    ],
+    "try": "把最近 3 条负面反馈加入评测集。",
+    "tags": [
+      "反馈",
+      "闭环",
+      "评测"
+    ],
+    "source": {
+      "name": "Awesome Context Engineering",
+      "url": "https://github.com/Meirtz/Awesome-Context-Engineering"
+    },
+    "releasedAt": "2026-11-17"
+  },
+  {
+    "id": "m106",
+    "cat": "验证",
+    "level": 4,
+    "title": "失败样本回放",
+    "one": "保存失败请求的完整输入，修复后原样重跑。",
+    "why": "复现是修复的前提；靠记忆复现通常会漏条件。",
+    "steps": [
+      "保存输入",
+      "保存工具结果",
+      "记录版本",
+      "修复后回放"
+    ],
+    "try": "挑一个失败样本做一次完整回放。",
+    "tags": [
+      "回放",
+      "复现",
+      "失败"
+    ],
+    "source": {
+      "name": "Claude Code Best Practice",
+      "url": "https://github.com/shanraisshan/claude-code-best-practice"
+    },
+    "releasedAt": "2026-11-17"
   }
 ]
